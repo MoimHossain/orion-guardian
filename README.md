@@ -1,5 +1,7 @@
 # Orion-Guardian Extension
 
+![Preview](OrionGuardian.gif)
+
 ## Introduction
 
 The **Orion-Guardian** is an Azure DevOps extension that provides some useful capabilities like Grouping of resources like repostiroy, environment etc and then apply permissions with custom role deinifions at scale.
