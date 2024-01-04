@@ -1,0 +1,25 @@
+{
+  "profiles": {
+    "Stellaris.Console": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AZURE_COSMOS_DATABASEID": "stellaris",
+        "AZURE_COSMOS_CONNECTIONSTRING": "",
+        "AZURE_DEVOPS_ORGNAME": "",
+        "AZURE_DEVOPS_USE_PAT": "true",
+        "AZURE_DEVOPS_PAT": "",
+        "AZURE_DEVOPS_USE_MANAGED_IDENTITY": "false",
+        "AZURE_DEVOPS_CLIENT_ID_OF_MANAGED_IDENTITY": "",
+        "AZURE_DEVOPS_TENANT_ID_OF_MANAGED_IDENTITY": "",
+        "AZURE_DEVOPS_USE_SERVICE_PRINCIPAL": "false",
+        "AZURE_DEVOPS_CLIENT_ID_OF_SERVICE_PRINCIPAL": "",
+        "AZURE_DEVOPS_CLIENT_SECRET_OF_SERVICE_PRINCIPAL": "",
+        "AZURE_DEVOPS_TENANT_ID_OF_SERVICE_PRINCIPAL": ""
+      }
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

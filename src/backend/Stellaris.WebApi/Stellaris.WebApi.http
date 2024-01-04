@@ -1,0 +1,199 @@
+
+@BACKEND_HOST = https://azdo-control-panel-backend.wittyfield-afb7ce64.westeurope.azurecontainerapps.io
+@BACKEND_HOST = https://localhost:7148
+@projectId = 1853c648-0f7d-4f1e-80ab-fd1ecd333520
+@folderId = 69143498-d728-4cad-a2a4-59e41894e206
+
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im9PdmN6NU1fN3AtSGpJS2xGWHo5M3VfVjBabyJ9.eyJuYW1laWQiOiIzNjMzMzRjZS0wOGIwLTRiZTctYTk1MC0zMjU2ZjM3YWQwNzQiLCJzY3AiOiJ2c28uYWdlbnRwb29sc19tYW5hZ2UgdnNvLmFuYWx5dGljcyB2c28uYXVkaXRsb2cgdnNvLmJ1aWxkIHZzby5idWlsZF9leGVjdXRlIHZzby5jb2RlX2Z1bGwgdnNvLmNvZGVfbWFuYWdlIHZzby5kYXNoYm9hcmRzX21hbmFnZSB2c28uZW52aXJvbm1lbnRfbWFuYWdlIHZzby5leHRlbnNpb24uZGF0YV93cml0ZSB2c28uZXh0ZW5zaW9uLmRlZmF1bHQgdnNvLmV4dGVuc2lvbl9tYW5hZ2UgdnNvLmdyYXBoX21hbmFnZSB2c28uaWRlbnRpdHlfbWFuYWdlIHZzby5tZW1iZXJlbnRpdGxlbWVudG1hbmFnZW1lbnRfd3JpdGUgdnNvLnByb2plY3RfbWFuYWdlIHZzby5yZWxlYXNlIHZzby5yZWxlYXNlX2V4ZWN1dGUgdnNvLnJlbGVhc2VfbWFuYWdlIHZzby5zZWN1cml0eV9tYW5hZ2UgdnNvLnNlcnZpY2VlbmRwb2ludCB2c28uc2VydmljZWVuZHBvaW50X21hbmFnZSB2c28uc2VydmljZWVuZHBvaW50X3F1ZXJ5IHZzby5zeW1ib2xzX21hbmFnZSB2c28udGFza2dyb3Vwc19tYW5hZ2UgdnNvLnZhcmlhYmxlZ3JvdXBzX21hbmFnZSB2c28udmFyaWFibGVncm91cHNfcmVhZCB2c28ud2lraSB2c28ud2lraV93cml0ZSB2c28ud29ya19mdWxsIiwiYXVpIjoiYTZhNjUxNzctMGRiYi00ODcxLWFmYmItMGMwYWM4YTA3ZDkwIiwiaGFpIjoiMDJiOTExZWMtZjkzYS00MDIxLWIyMjktNWEwYzEwNDU5YTZjIiwic2lkIjoiODQ5ODA3YzQtMzIwZS00ODMwLThiYzctMDAwMjQ3ZjJmYTRlIiwiaXNzIjoiYXBwLnZzdG9rZW4udmlzdWFsc3R1ZGlvLmNvbSIsImF1ZCI6ImFwcC52c3Rva2VuLnZpc3VhbHN0dWRpby5jb218dnNvOmEwZjRjNWI0LTlhNTEtNDY2YS04NDcwLTBkZTIwZmJiZmU1NiIsIm5iZiI6MTcwNDE5MDI1MiwiZXhwIjoxNzA0MTk0NDUyfQ.kPwWwiGG8lPJOt_A0eHTrKZ7VZutV0-NPxNLkG0xYen_gS1lUGOCUfzqg78A4QmAzKO_P17iFuVzw_oUdlXRiiCDAHgbAe2_Atcqxq6F9rJeNa1OTkxUveoveD5abhajO5nwTvy8ujzZLjUshJW8dZ8h4-w-Jb4hyWvPYsjxOWegJ1CKPSps9df0UyqI6hu5bjoKVMbWnhx1R58WNlRtsGjg587KI6g18Q3LwGfR7F3JrX_snwyzH9dlKYTMwioECxbWUtW1RUf5YyTzoBuZ7Q7Z-XBz0aBWS8_JrwKEtgUMprjwp2u3PLjor2Nbb7sYLI0g_7ArzX784qlIVLOzWA
+
+
+### Connection data
+GET https://dev.azure.com/moim/_apis/connectionData
+Accept: application/json
+Content-Type: application/json
+
+
+
+### Get current users built in roles
+GET {{BACKEND_HOST}}/api/{{projectId}}/security/currentUserRole
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+### Get folder permission evaluation
+GET {{BACKEND_HOST}}/api/{{projectId}}/security/{{projectId}}/evaluatePermissions
+Accept: application/json
+Authorization: Bearer {{token}}
+
+
+### Get top-level folders
+GET {{BACKEND_HOST}}/api/{{projectId}}/folders
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### Get child folders 
+GET {{BACKEND_HOST}}/api/{{projectId}}/folders/be1c3865-09d6-41e6-9d1c-8fdc84fd6465/children
+Accept: application/json
+
+### Create root folder
+POST {{BACKEND_HOST}}/api/{{projectId}}/folders
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "root-2",
+  "kind": "area",
+  "description": "Some description",
+  "ciNumber": "CI-001",
+  "createdBy": {
+    "id": "moimhossain",
+    "descriptor": "moimhossain",
+    "displayName": "moimhossain",
+    "imageUrl": "moimhossain/com",
+    "name": "moimhossain"
+  }
+}
+
+### Create child folder
+POST {{BACKEND_HOST}}/api/{{projectId}}/folders/42891d90-76dd-4198-902c-032d8200e037/children
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "child2-grandchild1",
+  "kind": "squad",
+  "description": "a child",
+  "ciNumber": "CI-001",
+  "createdBy": {
+    "id": "moimhossain",
+    "descriptor": "moimhossain",
+    "displayName": "moimhossain",
+    "imageUrl": "moimhossain/com",
+    "name": "moimhossain"
+  }
+}
+
+### DELETE folder
+DELETE {{BACKEND_HOST}}/api/{{projectId}}/folders/9dcfc386-cb38-4996-b30a-0918620fe7c4
+Content-Type: application/json
+
+### List linked resources
+GET {{BACKEND_HOST}}/api/1853c648-0f7d-4f1e-80ab-fd1ecd333520/links/69143498-d728-4cad-a2a4-59e41894e206/Repository
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Create ROle
+POST {{BACKEND_HOST}}/api/{{projectId}}/security/roles
+Accept: application/json
+Content-Type: application/json
+
+{
+    "folderId": "4ff151c7-e2cd-4649-b872-32332415c3da",
+    "resourceId": "4ff151c7-e2cd-4649-b872-32332415c3da",
+    "kind": "FOLDER",
+    "roleDescriptors": [
+        {
+            "identity": {
+                "entityId": "vss.ds.v1.aad.group.0f7065304b0a487cb67a42a931c54ec5",
+                "entityType": "Group",
+                "originDirectory": "aad",
+                "originId": "0f706530-4b0a-487c-b67a-42a931c54ec5",
+                "localDirectory": null,
+                "localId": null,
+                "displayName": "TEST-GROUP-ABC",
+                "scopeName": "Default Directory",
+                "samAccountName": null,
+                "active": null,
+                "subjectDescriptor": null,
+                "department": null,
+                "jobTitle": null,
+                "mail": null,
+                "mailNickname": "82494be5-5",
+                "physicalDeliveryOfficeName": null,
+                "signInAddress": null,
+                "surname": null,
+                "guest": false,
+                "telephoneNumber": null,
+                "description": null,
+                "isMru": false
+            },
+            "roleDefinition": {
+                "displayName": "Administrator",
+                "name": "Administrator",
+                "allowPermissions": 0,
+                "denyPermissions": 0,
+                "identifier": "custom.folderpermissions.Administrator",
+                "description": "Administrator can administer permissions, manage, view and use folder.",
+                "scope": "custom.folderpermissionsrole"
+            }
+        }
+    ]
+}
+
+
+
+### Create role assignment
+POST {{BACKEND_HOST}}/api/{{projectId}}/custom-roles/roleAssignments
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "folderId": "69143498-d728-4cad-a2a4-59e41894e206",
+    "resourceKind": "Repository",
+    "identity": {
+        "entityId": "vss.ds.v1.aad.group.49051f9e0b3a4581b52469f1aac7cf9d",
+        "entityType": "Group",
+        "originDirectory": "aad",
+        "originId": "49051f9e-0b3a-4581-b524-69f1aac7cf9d",
+        "localDirectory": "vsd",
+        "localId": "cecf162e-fe8e-45b4-857d-1c48657b1917",
+        "displayName": "[TEAM FOUNDATION]\\MH-GP-RULES",
+        "scopeName": "Default Directory",
+        "samAccountName": "MH-GP-RULES",
+        "subjectDescriptor": "aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTI2NTI4MzMwOTctOTczODMyNTE3LTMwMzkwNjI1MTMtMjg2NTIyMTUzMw",
+        "department": null,
+        "jobTitle": null,
+        "mail": null,
+        "mailNickname": "63c530fb-0",
+        "physicalDeliveryOfficeName": null,
+        "signInAddress": null,
+        "surname": null,
+        "guest": false,
+        "description": null,
+        "isMru": false
+    },
+    "customRoleId": "6117a757-347c-4b31-9710-54cf1dc8a011"
+}
+
+
+### DELETE Role assignment
+DELETE {{BACKEND_HOST}}/api/f3fe691d-b2b3-443a-a447-5b468f67cfb0/custom-roles/roleAssignments/4c0c57cb-4ff5-41e4-90af-afbadaf921ba
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Enforce/Apply security
+POST {{BACKEND_HOST}}/api/{{projectId}}/security/{{folderId}}/enforce
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "resourceId": "044ba499-4832-42f4-a1fb-60dd02413ee0",
+    "resourceKind": "Repository"
+}
+
+### Enforce/Apply security in Batch
+POST {{BACKEND_HOST}}/api/{{projectId}}/security/{{folderId}}/enforceBatch
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{    
+    "resourceKind": "Repository"
+}
+
+
